@@ -3,7 +3,7 @@
 #define SBOOL
 class sbool
 {
-    char mem = 0b0000;
+    char mem = 0b0000'0000;
     public:
     sbool(const char& data)
         : mem(data) {}
@@ -22,7 +22,7 @@ class sbool
 #define LBOOL
 class lbool
 {
-    short mem = 0b0000'0000;
+    short mem = 0b0000'0000'000'0000;
     public:
     lbool(const short& data)
         : mem(data) {}
@@ -41,7 +41,7 @@ class lbool
 #define LLBOOL
 class llbool
 {
-    int mem = 0b0000'0000'0000'0000;
+    int mem = 0b0000'0000'0000'0000'0000'0000'0000'0000;
     public:
     llbool(const int& data)
         : mem(data) {}
@@ -60,7 +60,7 @@ class llbool
 #define ULBOOL
 class ulbool
 {
-    long long mem = 0b0000'0000'0000'0000'0000'0000'0000'0000;
+    long long mem = 0b0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000;
     public:
     ulbool(const long long& data)
         : mem(data) {}

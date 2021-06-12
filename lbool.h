@@ -3,7 +3,7 @@
 #define LBOOL
 class lbool
 {
-    short mem = 0b0000'0000;
+    short mem = 0b0000'0000'0000'0000;
     public:
     lbool(const short& data)
         : mem(data) {}

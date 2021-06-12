@@ -3,7 +3,7 @@
 #define LLBOOL
 class llbool
 {
-    int mem = 0b0000'0000'0000'0000;
+    int mem = 0b0000'0000'0000'0000'0000'0000'0000'0000;
     public:
     llbool(const int& data)
         : mem(data) {}

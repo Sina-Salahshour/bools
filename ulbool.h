@@ -3,7 +3,7 @@
 #define ULBOOL
 class ulbool
 {
-    long long mem = 0b0000'0000'0000'0000'0000'0000'0000'0000;
+    long long mem = 0b0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000;
     public:
     ulbool(const long long& data)
         : mem(data) {}

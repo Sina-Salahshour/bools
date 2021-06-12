@@ -2,7 +2,7 @@
 #define SBOOL
 class sbool
 {
-    char mem = 0b0000;
+    char mem = 0b0000'0000;
     public:
     sbool(const char& data)
         : mem(data) {}
