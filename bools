@@ -1,0 +1,77 @@
+#pragma once
+#ifndef SBOOL
+#define SBOOL
+class sbool
+{
+    char mem = 0b0000;
+    public:
+    sbool(const char& data)
+        : mem(data) {}
+    sbool() {}
+    const bool operator[] (const int& index) const
+    {
+        return (mem >> index) & 1;
+    }
+    void pushData(const int& index, const bool& data)
+    {
+        mem |= data << index;
+    }
+};
+#endif
+#ifndef LBOOL
+#define LBOOL
+class lbool
+{
+    short mem = 0b0000'0000;
+    public:
+    lbool(const short& data)
+        : mem(data) {}
+    lbool() {}
+    const bool operator[] (const int& index) const
+    {
+        return (mem >> index) & 1;
+    }
+    void pushData(const int& index, const bool& data)
+    {
+        mem |= data << index;
+    }
+};
+#endif
+#ifndef LLBOOL
+#define LLBOOL
+class llbool
+{
+    int mem = 0b0000'0000'0000'0000;
+    public:
+    llbool(const int& data)
+        : mem(data) {}
+    llbool() {}
+    const bool operator[] (const int& index) const
+    {
+        return (mem >> index) & 1;
+    }
+    void pushData(const int& index, const bool& data)
+    {
+        mem |= data << index;
+    }
+};
+#endif
+#ifndef ULBOOL
+#define ULBOOL
+class ulbool
+{
+    long long mem = 0b0000'0000'0000'0000'0000'0000'0000'0000;
+    public:
+    ulbool(const long long& data)
+        : mem(data) {}
+    ulbool() {}
+    const bool operator[] (const int& index) const
+    {
+        return (mem >> index) & 1;
+    }
+    void pushData(const int& index, const bool& data)
+    {
+        mem |= data << index;
+    }
+};
+#endif
