@@ -19,7 +19,7 @@ Usage:
 sbool bool1;
 bool1.pushData(index, value); 
 ```
-"bool[index]" for accessing the value of bool;
+"bool[index]" for accessing the value of bool.
 ```
 if(bool1[index]) 
 {
