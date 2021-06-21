@@ -11,7 +11,6 @@ Datatypes for storing more than one booleans in a single byte.
 ```
 Usage:  
 ```
-#include "sbool.h" //for adding ulbool only.
 #include "bools" //for adding all of datatypes.
 ```
 "index" is the index of our boolean and "value" is the value of our boolean.
