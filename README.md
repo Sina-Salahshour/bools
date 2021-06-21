@@ -14,12 +14,10 @@ Usage:
 #include "bools"
 ```
 "index" is the index of our boolean and "value" is the value of our boolean.
-```
-sbool bool1;
-bool1.pushData(index, value); 
-```
 "bool[index]" for accessing the value of bool.
 ```
+sbool bool1; 
+bool1[index] = value;
 if(bool1[index]) 
 {
  /* some code */
