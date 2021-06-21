@@ -11,7 +11,7 @@ Datatype for storing more than one booleans in a single byte.
 ```
 Usage:  
 ```
-#include "bools" //for adding all of datatypes.
+#include "bools"
 ```
 "index" is the index of our boolean and "value" is the value of our boolean.
 ```
