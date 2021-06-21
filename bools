@@ -1,6 +1,29 @@
 #pragma once
-#ifndef SBOOL
-#define SBOOL
+class boolsProxy
+{
+    long long* mem;
+    const int& index;
+    public:
+    boolsProxy(long long* mem,const int& index)
+        :mem(mem), index(index) {}
+    operator bool()
+    {
+        return getData(index);
+    }
+    boolsProxy operator= (const bool& value)
+    {
+        pushData(index, value);
+        return *this;
+    }
+    const bool getData (const int& index) const
+    {
+        return (*mem >> index) & 1;
+    }
+    void pushData(const int& index, const bool& data)
+    {
+        *mem ^= (-data ^ *mem) & (1 << index);
+    }
+};
 class sbool
 {
     char mem = 0b0000'0000;
@@ -8,18 +31,12 @@ class sbool
     sbool(const char& data)
         : mem(data) {}
     sbool() {}
-    const bool operator[] (const int& index) const
+    boolsProxy operator[] (const int& index)
     {
-        return (mem >> index) & 1;
+        return boolsProxy((long long*)&mem, index);
     }
-    void pushData(const int& index, const bool& data)
-    {
-        mem |= data << index;
-    }
+    
 };
-#endif
-#ifndef LBOOL
-#define LBOOL
 class lbool
 {
     short mem = 0b0000'0000'000'0000;
@@ -27,18 +44,11 @@ class lbool
     lbool(const short& data)
         : mem(data) {}
     lbool() {}
-    const bool operator[] (const int& index) const
+    boolsProxy operator[] (const int& index)
     {
-        return (mem >> index) & 1;
-    }
-    void pushData(const int& index, const bool& data)
-    {
-        mem |= data << index;
+        return boolsProxy((long long*)&mem, index);
     }
 };
-#endif
-#ifndef LLBOOL
-#define LLBOOL
 class llbool
 {
     int mem = 0b0000'0000'0000'0000'0000'0000'0000'0000;
@@ -46,18 +56,11 @@ class llbool
     llbool(const int& data)
         : mem(data) {}
     llbool() {}
-    const bool operator[] (const int& index) const
+    boolsProxy operator[] (const int& index)
     {
-        return (mem >> index) & 1;
-    }
-    void pushData(const int& index, const bool& data)
-    {
-        mem |= data << index;
+        return boolsProxy((long long*)&mem, index);
     }
 };
-#endif
-#ifndef ULBOOL
-#define ULBOOL
 class ulbool
 {
     long long mem = 0b0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000;
@@ -65,13 +68,8 @@ class ulbool
     ulbool(const long long& data)
         : mem(data) {}
     ulbool() {}
-    const bool operator[] (const int& index) const
+    boolsProxy operator[] (const int& index)
     {
-        return (mem >> index) & 1;
-    }
-    void pushData(const int& index, const bool& data)
-    {
-        mem |= data << index;
+        return boolsProxy((long long*)&mem, index);
     }
 };
-#endif
