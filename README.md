@@ -1,5 +1,5 @@
 # bools
-Datatypes for storing more than one booleans in a single byte.  
+Datatype for storing more than one booleans in a single byte.  
 
 ```
          name 	memory used 	 capacity
