@@ -8,18 +8,45 @@ class boolsProxy
         :mem(mem), index(index) {}
     operator bool()
     {
-        return getData(index);
+        return getData();
     }
-    boolsProxy operator= (const bool& value)
+    bool operator++ ()
     {
-        pushData(index, value);
+        pushData(true);
         return *this;
     }
-    const bool getData (const int& index) const
+    bool operator-- ()
+    {
+        pushData(false);
+        return *this;
+    }
+    bool operator++ (int)
+    {
+        bool temp = *this;
+        pushData(true);
+        return temp;
+    }
+    bool operator-- (int)
+    {
+        bool temp = *this;
+        pushData(false);
+        return temp;
+    }
+    bool flip()
+    {
+        pushData(!(*this));
+        return *this;
+    }
+    const boolsProxy& operator= (const bool& value)
+    {
+        pushData(value);
+        return *this;
+    }
+    const bool getData () const
     {
         return (*mem >> index) & 1;
     }
-    void pushData(const int& index, const bool& data)
+    void pushData(const bool& data)
     {
         *mem ^= (-data ^ *mem) & (1 << index);
     }
