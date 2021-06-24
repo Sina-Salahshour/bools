@@ -1,5 +1,5 @@
 # bools
-<style>p{color:Blue;}</style>
+<style>p{color:red;}</style>
 Datatype for storing more than one booleans in a single byte.  
 
 ```
