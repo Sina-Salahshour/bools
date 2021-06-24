@@ -13,8 +13,8 @@ Usage:
 ```
 #include "bools"
 ```
-"index" is the index of our boolean and "value" is the value of our boolean.
-"bool1[index]" for accessing the value of bool.
+```index``` is the index of our boolean and ```value``` is the value of our boolean.
+```bool1[index]``` for accessing the value of bool.
 ```
 sbool bool1; 
 bool1[index] = value;
@@ -34,7 +34,7 @@ bool1[index]++;
 bool1[index]--;
 --bool1[index];
 ```
-you can change the value of array manually. index is counted from right to left. in this example "bool1[1]" is equal to "true".
+you can change the value of array manually. index is counted from right to left. in this example ```bool1[1]``` is equal to ```true```.
 ```
 bool1 = 0b0000'0010; 
 ```
