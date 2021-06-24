@@ -1,5 +1,4 @@
 # bools
-<style>p{color:red;}</style>
 Datatype for storing more than one booleans in a single byte.  
 
 ```
@@ -35,7 +34,7 @@ bool1[index]++;
 bool1[index]--;
 --bool1[index];
 ```
-you can change the value of array manually. index is counted from right to left. in this example ```bool1[1]``` is equal to <p>true<p /> ```true```.
+you can change the value of array manually. index is counted from right to left. in this example ```bool1[1]``` is equal ```true```.
 ```
 bool1 = 0b0000'0010; 
 ```
