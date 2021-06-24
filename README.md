@@ -34,7 +34,9 @@ bool1[index]++;
 bool1[index]--;
 --bool1[index];
 ```
-you can change the value of array manually. index is counted from right to left. in this example ```bool1[1]``` is equal to ```js true```.
+you can change the value of array manually. index is counted from right to left. in this example ```bool1[1]``` is equal to ```json
+true
+```.
 ```
 bool1 = 0b0000'0010; 
 ```
