@@ -13,7 +13,7 @@ Usage:
 ```
 #include "bools"
 ```
-```index``` is the index of our boolean and ```value``` is the value of our boolean.
+```index``` is the index of our boolean and ```value``` is the value of it.
 ```bool1[index]``` for accessing the value of bool.
 ```
 sbool bool1; 
