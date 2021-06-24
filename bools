@@ -1,10 +1,10 @@
 #pragma once
 class boolsProxy
 {
-    long long* mem;
+    unsigned long long* mem;
     const int& index;
     public:
-    boolsProxy(long long* mem,const int& index)
+    boolsProxy(unsigned long long* mem,const int& index)
         :mem(mem), index(index) {}
     operator bool()
     {
@@ -34,7 +34,7 @@ class boolsProxy
     }
     bool flip()
     {
-        pushData(!(*this));
+        *mem ^= (long long)1 << index;
         return *this;
     }
     const boolsProxy& operator= (const bool& value)
@@ -48,55 +48,59 @@ class boolsProxy
     }
     void pushData(const bool& data)
     {
-        *mem ^= (-data ^ *mem) & (1 << index);
+        *mem = ((*mem & (~((long long)1 << index))) | ((long long)data << index));
     }
 };
 class sbool
 {
-    char mem = 0b0000'0000;
+    unsigned char mem = 0b0000'0000;
     public:
     sbool(const char& data)
         : mem(data) {}
     sbool() {}
     boolsProxy operator[] (const int& index)
     {
-        return boolsProxy((long long*)&mem, index);
+        return boolsProxy((unsigned long long*)&mem, index);
     }
+    char length() {return 8;}
     
 };
 class lbool
 {
-    short mem = 0b0000'0000'000'0000;
+    unsigned short mem = 0b0000'0000'000'0000;
     public:
     lbool(const short& data)
         : mem(data) {}
     lbool() {}
     boolsProxy operator[] (const int& index)
     {
-        return boolsProxy((long long*)&mem, index);
+        return boolsProxy((unsigned long long*)&mem, index);
     }
+    char length() {return 16;}
 };
 class llbool
 {
-    int mem = 0b0000'0000'0000'0000'0000'0000'0000'0000;
+    unsigned int mem = 0b0000'0000'0000'0000'0000'0000'0000'0000;
     public:
     llbool(const int& data)
         : mem(data) {}
     llbool() {}
     boolsProxy operator[] (const int& index)
     {
-        return boolsProxy((long long*)&mem, index);
+        return boolsProxy((unsigned long long*)&mem, index);
     }
+    char length() {return 32;}
 };
 class ulbool
 {
-    long long mem = 0b0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000;
+    unsigned long long mem = 0b0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000'0000;
     public:
     ulbool(const long long& data)
         : mem(data) {}
     ulbool() {}
     boolsProxy operator[] (const int& index)
     {
-        return boolsProxy((long long*)&mem, index);
+        return boolsProxy((unsigned long long*)&mem, index);
     }
+    char length() {return 64;}
 };
